@@ -1,23 +1,23 @@
 package model;
 
 public class CompanyModel {
-    private String id;
+    private int id;
     private String companyName;
     private String fantasyName;
     private String cnpj;
 
-    public CompanyModel(String id, String companyName, String fantasyName, String cnpj) {
+    public CompanyModel(int id, String companyName, String fantasyName, String cnpj) {
         this.id = id;
         this.companyName = companyName;
         this.fantasyName = fantasyName;
         this.cnpj = cnpj;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
