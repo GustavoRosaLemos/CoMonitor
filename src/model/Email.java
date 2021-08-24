@@ -1,11 +1,11 @@
 package model;
 
-public class EmailModel {
+public class Email {
     private int id;
     private String type;
     private String value;
 
-    public EmailModel(int id, String type, String value) {
+    public Email(int id, String type, String value) {
         this.id = id;
         this.type = type;
         this.value = value;

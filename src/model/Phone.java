@@ -1,12 +1,12 @@
 package model;
 
-public class PhoneModel {
+public class Phone {
     private int id;
     private String type;
     private String ddd;
     private String number;
 
-    public PhoneModel(int id, String type, String ddd, String number) {
+    public Phone(int id, String type, String ddd, String number) {
         this.id = id;
         this.type = type;
         this.ddd = ddd;
