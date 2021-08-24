@@ -2,27 +2,17 @@ package model;
 
 import java.util.ArrayList;
 
-public class CompanyModel {
+public class Company {
     private int id;
     private String companyName;
     private String fantasyName;
     private String cnpj;
-    private ArrayList<SubsidiaryModel> subsidiaries;
 
-    public CompanyModel(int id, String companyName, String fantasyName, String cnpj) {
+    public Company(int id, String companyName, String fantasyName, String cnpj) {
         this.id = id;
         this.companyName = companyName;
         this.fantasyName = fantasyName;
         this.cnpj = cnpj;
-        this.subsidiaries = new ArrayList<SubsidiaryModel>();
-    }
-
-    public CompanyModel(int id, String companyName, String fantasyName, String cnpj, ArrayList<SubsidiaryModel> subsidiaries) {
-        this.id = id;
-        this.companyName = companyName;
-        this.fantasyName = fantasyName;
-        this.cnpj = cnpj;
-        this.subsidiaries = subsidiaries;
     }
 
     public int getId() {
@@ -49,14 +39,6 @@ public class CompanyModel {
         return cnpj;
     }
 
-    public void addSubsidiary(SubsidiaryModel subsidiary) {
-        subsidiaries.add(subsidiary);
-    }
-
-    public void removeSubsidiary(SubsidiaryModel subsidiary) {
-        subsidiaries.remove(subsidiary);
-    }
-
     @Override
     public String toString() {
         return "CompanyModel{" +
@@ -64,7 +46,6 @@ public class CompanyModel {
                 ", companyName='" + companyName + '\'' +
                 ", fantasyName='" + fantasyName + '\'' +
                 ", cnpj='" + cnpj + '\'' +
-                ", subsidiaries=" + subsidiaries +
                 '}';
     }
 }

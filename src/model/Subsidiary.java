@@ -2,19 +2,21 @@ package model;
 
 import java.util.ArrayList;
 
-public class SubsidiaryModel {
+public class Subsidiary extends Company {
     private int id;
     private String displayName;
-    private ArrayList<EmployeeModel> employees;
+    private ArrayList<Employee> employees;
 
-    public SubsidiaryModel(int id, String displayName) {
-        this.id = id;
+    public Subsidiary(int id, String companyName, String fantasyName, String cnpj, int id1, String displayName) {
+        super(id, companyName, fantasyName, cnpj);
+        this.id = id1;
         this.displayName = displayName;
-        this.employees = new ArrayList<EmployeeModel>();
+        this.employees = new ArrayList<Employee>();
     }
 
-    public SubsidiaryModel(int id, String displayName, ArrayList<EmployeeModel> employees) {
-        this.id = id;
+    public Subsidiary(int id, String companyName, String fantasyName, String cnpj, int id1, String displayName, ArrayList<Employee> employees) {
+        super(id, companyName, fantasyName, cnpj);
+        this.id = id1;
         this.displayName = displayName;
         this.employees = employees;
     }
@@ -31,19 +33,19 @@ public class SubsidiaryModel {
         this.displayName = displayName;
     }
 
-    public ArrayList<EmployeeModel> getEmployees() {
+    public ArrayList<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(ArrayList<EmployeeModel> employees) {
+    public void setEmployees(ArrayList<Employee> employees) {
         this.employees = employees;
     }
 
-    private void addEmployee(EmployeeModel employee) {
+    private void addEmployee(Employee employee) {
         employees.add(employee);
     }
 
-    private void removeEmployee(EmployeeModel employee) {
+    private void removeEmployee(Employee employee) {
         employees.remove(employee);
     }
 
