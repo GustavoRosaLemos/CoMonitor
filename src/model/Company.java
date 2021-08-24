@@ -23,16 +23,26 @@ public class Company {
         return companyName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public boolean setCompanyName(String companyName) {
+        if(companyName instanceof String) {
+            this.companyName = companyName;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String getFantasyName() {
         return fantasyName;
     }
 
-    public void setFantasyName(String fantasyName) {
-        this.fantasyName = fantasyName;
+    public boolean setFantasyName(String fantasyName) {
+        if(fantasyName instanceof String) {
+            this.fantasyName = fantasyName;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String getCnpj() {
