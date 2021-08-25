@@ -1,6 +1,4 @@
-package model;
-
-import java.util.ArrayList;
+package Model;
 
 public class Company {
     private int id;
