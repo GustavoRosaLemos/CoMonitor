@@ -9,8 +9,16 @@ public class Employee {
     private String location;
     private boolean infected = false;
     private boolean immunized = false;
+    private String workMethod = "Presencial";
     private ArrayList<Email> emails;
     private ArrayList<Phone> phones;
+
+    public Employee(int id, String fullName, String role, String location) {
+        this.id = id;
+        this.fullName = fullName;
+        this.role = role;
+        this.location = location;
+    }
 
     public Employee(int id, String fullName, String role, String location, boolean infected, boolean immunized) {
         this.id = id;
@@ -19,26 +27,36 @@ public class Employee {
         this.location = location;
         this.infected = infected;
         this.immunized = immunized;
-        this.emails = new ArrayList<Email>();
-        this.phones = new ArrayList<Phone>();
     }
 
-    public Employee(int id, String fullName, String role, String location, boolean infected, boolean immunized, ArrayList<Email> emails, ArrayList<Phone> phones) {
+    public Employee(int id, String fullName, String role, String location, String workMethod) {
+        this.id = id;
+        this.fullName = fullName;
+        this.role = role;
+        this.location = location;
+        this.workMethod = workMethod;
+    }
+
+    public Employee(int id, String fullName, String role, String location, boolean infected, boolean immunized, String workMethod) {
         this.id = id;
         this.fullName = fullName;
         this.role = role;
         this.location = location;
         this.infected = infected;
         this.immunized = immunized;
-        this.emails = emails;
-        this.phones = phones;
+        this.workMethod = workMethod;
     }
 
-    public Employee(int id, String fullName, String role, String location) {
+    public Employee(int id, String fullName, String role, String location, boolean infected, boolean immunized, String workMethod, ArrayList<Email> emails, ArrayList<Phone> phones) {
         this.id = id;
         this.fullName = fullName;
         this.role = role;
         this.location = location;
+        this.infected = infected;
+        this.immunized = immunized;
+        this.workMethod = workMethod;
+        this.emails = emails;
+        this.phones = phones;
     }
 
     public int getId() {
@@ -83,6 +101,24 @@ public class Employee {
 
     public void setImmunized(boolean immunized) {
         this.immunized = immunized;
+    }
+
+    public String getWorkMethod() {
+        return workMethod;
+    }
+
+    public boolean setWorkMethod(String workMethod) {
+        if(workMethod.equalsIgnoreCase("presencial")) {
+            this.workMethod = "Presencial";
+            return true;
+        } else if(workMethod.equalsIgnoreCase("hibrido")) {
+            this.workMethod = "Hibrido";
+            return true;
+        } else if(workMethod.equalsIgnoreCase("homeoffice")) {
+            this.workMethod = "HomeOffice";
+            return true;
+        }
+        return false;
     }
 
     public ArrayList<Email> getEmails() {
