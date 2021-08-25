@@ -41,11 +41,11 @@ public class Subsidiary extends Company {
         this.employees = employees;
     }
 
-    private void addEmployee(Employee employee) {
+    public void addEmployee(Employee employee) {
         employees.add(employee);
     }
 
-    private void removeEmployee(Employee employee) {
+    public void removeEmployee(Employee employee) {
         employees.remove(employee);
     }
 
