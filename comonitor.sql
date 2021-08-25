@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 
 CREATE DATABASE comonitor;
 
-USE 'comonitor';
+USE comonitor;
 
 -- --------------------------------------------------------
 
