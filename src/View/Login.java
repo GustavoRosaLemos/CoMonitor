@@ -34,7 +34,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        tfdPasswordLogin = new javax.swing.JTextField();
+        tfdPasswordLogin = new javax.swing.JPasswordField();
         tfdUserLogin = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
 
@@ -114,6 +114,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField tfdPasswordLogin;
+    private javax.swing.JPasswordField tfdPasswordLogin;
     private javax.swing.JTextField tfdUserLogin;
 }

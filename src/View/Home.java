@@ -268,7 +268,9 @@ public class Home extends javax.swing.JFrame {
     }
 
     private void btnSetJobActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        setVisible(false);
+        dispose();
+        WorkMethod.execute();
     }
 
     /**

@@ -5,6 +5,10 @@
  */
 package View;
 
+import Controller.Visual;
+import Model.Email;
+import Model.Employee;
+
 /**
  *
  * @author paulo
@@ -15,7 +19,9 @@ public class WorkMethod extends javax.swing.JFrame {
      * Creates new form WorkMethod
      */
     public WorkMethod() {
+
         initComponents();
+        titleSubWorkMethod.setText(Visual.getSubsidiary().getDisplayName());
     }
 
     /**
@@ -37,7 +43,7 @@ public class WorkMethod extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         titleWorkMethod.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        titleWorkMethod.setText("Nome da empresa");
+        titleWorkMethod.setText("Gerencia Regime de Trabalho");
 
         titleSubWorkMethod.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         titleSubWorkMethod.setText("Subsidiary");
@@ -58,7 +64,7 @@ public class WorkMethod extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Definir Presencial");
+        jButton3.setText("Definir HomeOffice");
         jButton3.setMaximumSize(new java.awt.Dimension(159, 23));
         jButton3.setMinimumSize(new java.awt.Dimension(159, 23));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +73,7 @@ public class WorkMethod extends javax.swing.JFrame {
             }
         });
 
-        backWorkMethod.setText("Voltar");
+        backWorkMethod.setText("< Voltar");
         backWorkMethod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backWorkMethodActionPerformed(evt);
@@ -119,19 +125,45 @@ public class WorkMethod extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        for (Employee employee: Visual.getSubsidiary().getEmployees()) {
+            if(employee.getWorkMethod().equalsIgnoreCase("presencial")) {
+                employee.setWorkMethod("Hibrido");
+
+                if(employee.getEmails().size() > 0) {
+                    for (Email email:employee.getEmails()) {
+                        Visual.sendMail("Troca de Regime de Trabalho", "A partir de agora todos os funcionários deverão trabalhar apenas em Hibrido/HomeOffice.\n\nEssa medida é para a sua seguranda!",  email.getValue());
+                    }
+                }
+            }
+        }
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        for (Employee employee: Visual.getSubsidiary().getEmployees()) {
+            if(employee.getEmails().size() > 0) {
+                for (Email email:employee.getEmails()) {
+                    Visual.sendMail("Troca de Regime de Trabalho", "A partir de agora todos os funcionários poderão voltar ao regime normal de trabalho.",  email.getValue());
+                }
+            }
+
+        }
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        for (Employee employee: Visual.getSubsidiary().getEmployees()) {
+            employee.setWorkMethod("HomeOffice");
+            if(employee.getEmails().size() > 0) {
+                for (Email email:employee.getEmails()) {
+                    Visual.sendMail("Troca de Regime de Trabalho", "A partir de agora todos os funcionários deverão trabalhar apenas em HomeOffice.\n\nEssa medida é para a sua seguranda!",  email.getValue());
+                }
+            }
+        }
     }
 
     private void backWorkMethodActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        setVisible(false);
+        dispose();
+        Home.execute();
     }
 
     public static void execute() {
