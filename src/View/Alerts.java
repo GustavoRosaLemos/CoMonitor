@@ -7,6 +7,8 @@ package View;
 
 import Controller.Visual;
 
+import javax.swing.*;
+
 /**
  *
  * @author paulo
@@ -53,7 +55,7 @@ public class Alerts extends javax.swing.JFrame {
         btnLockdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Visual.sendMultipleMail("!!!LOCKDOWN EMERGENCIAL!!!", "Para a sua segurança, recomendamos que não vá mais a sede presencial da empresa.\n\nEssa medida é por tempo indeterminado!", Visual.getSubsidiary().getEmployees());
-                System.out.println("Email enviado a todos os funcionários!");
+                JOptionPane.showMessageDialog(null, "E-mail enviado com sucesso a todos os funcionários!");
             }
         });
 
@@ -61,7 +63,7 @@ public class Alerts extends javax.swing.JFrame {
         bntChangeSistem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Visual.sendMultipleMail("Sistema de Rodizio", "O sistema de rodizio está ativo!\n\nFuncionários que tem idade impar devem trabalhar em dias impares, e funcionarios que tem idade par devem trabalhar em dias pares.\n\nAgradecemos a sua colaboração!", Visual.getSubsidiary().getEmployees());
-                System.out.println("Email enviado a todos os funcionários!");
+                JOptionPane.showMessageDialog(null, "E-mail enviado com sucesso a todos os funcionários!");
             }
         });
 
@@ -69,7 +71,7 @@ public class Alerts extends javax.swing.JFrame {
         btnDistanceAlert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Visual.sendMultipleMail("Colabore com o distanciamento social", "Para a sua segurança e a de terceiros mantenha uma distância de 3m de outros funcionários.\n\nTambém é necessário manter um acento de distância nas mesas de trabalho.\n\nAgradecemos a sua colaboração!", Visual.getSubsidiary().getEmployees());
-                System.out.println("Email enviado a todos os funcionários!");
+                JOptionPane.showMessageDialog(null, "E-mail enviado com sucesso a todos os funcionários!");
             }
         });
 
@@ -77,7 +79,7 @@ public class Alerts extends javax.swing.JFrame {
         bntgInfectedAlert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Visual.sendMultipleMail("Relatório de Infectados", "A " + Visual.getSubsidiary().getDisplayName() + " já está registrando o número de " + Visual.getTotalInfecteds(Visual.getSubsidiary()) + " infectados.\n\nLembre-se de sempre seguir as recomendações de saude!", Visual.getSubsidiary().getEmployees());
-                System.out.println("Email enviado a todos os funcionários!");
+                JOptionPane.showMessageDialog(null, "E-mail enviado com sucesso a todos os funcionários!");
             }
         });
 
@@ -85,7 +87,7 @@ public class Alerts extends javax.swing.JFrame {
         bntVaccinatedAlert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Visual.sendMultipleMail("Relatório de Vacionados", "A " + Visual.getSubsidiary().getDisplayName() + " já está registrando o número de " + Visual.getTotalImmunizeds(Visual.getSubsidiary()) + " imunizados.\n\nVamos aumentar esse número, vacine-se você também!", Visual.getSubsidiary().getEmployees());
-                System.out.println("Email enviado a todos os funcionários!");
+                JOptionPane.showMessageDialog(null, "E-mail enviado com sucesso a todos os funcionários!");
             }
         });
 
@@ -93,7 +95,7 @@ public class Alerts extends javax.swing.JFrame {
         bntCleanAlert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Visual.sendMultipleMail("Aviso de Limpeza", "Lembrete: Nosso unidade recebera higienização completa no dia 26, nesse dia todos devem ficar de homeoffice!", Visual.getSubsidiary().getEmployees());
-                System.out.println("Email enviado a todos os funcionários!");
+                JOptionPane.showMessageDialog(null, "E-mail enviado com sucesso a todos os funcionários!");
             }
         });
 
