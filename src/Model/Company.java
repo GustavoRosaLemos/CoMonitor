@@ -44,8 +44,8 @@ public class Company {
 
     @Override
     public String toString() {
-        return "CompanyModel{" +
-                ", companyName='" + companyName + '\'' +
+        return "Company{" +
+                "companyName='" + companyName + '\'' +
                 ", fantasyName='" + fantasyName + '\'' +
                 ", cnpj='" + cnpj + '\'' +
                 '}';

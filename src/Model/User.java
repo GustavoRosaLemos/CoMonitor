@@ -31,4 +31,13 @@ public class User {
     public boolean isAdmin() {
         return isAdmin;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
+    }
 }

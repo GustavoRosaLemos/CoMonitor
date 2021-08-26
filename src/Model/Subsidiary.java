@@ -57,9 +57,10 @@ public class Subsidiary extends Company {
 
     @Override
     public String toString() {
-        return "SubsidiaryModel{" +
-                ", displayName='" + displayName + '\'' +
+        return "Subsidiary{" +
+                "displayName='" + displayName + '\'' +
                 ", employees=" + employees +
+                ", employeesList='" + employeesList + '\'' +
                 '}';
     }
 }
