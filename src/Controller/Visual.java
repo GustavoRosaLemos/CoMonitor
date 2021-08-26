@@ -1,6 +1,5 @@
 package Controller;
 
-import CustomException.CustomException;
 import Model.*;
 
 import java.util.ArrayList;
@@ -101,19 +100,19 @@ public abstract class Visual {
         }
     }
 
-    public static User getUser() throws CustomException {
+    public static User getUser() {
         return new User("", "", true);
     };
 
-    public static Employee getEmployee() throws CustomException {
+    public static Employee getEmployee() {
         return new Employee("Carlos José", "Gerente de TI", "5 Andar", "presencial");
     };
 
-    public static Company getCompany() throws CustomException {
+    public static Company getCompany() {
         return new Company("Serasa LTDA", "Serasa Consumidor", "21328349-34");
     };
 
-    public static Subsidiary getSubsidiary() throws CustomException {
+    public static Subsidiary getSubsidiary() {
         ArrayList<Employee> employees = new ArrayList<>();
         employees.add(new Employee("Yuri Renato Baptista", "Desenvolvedor", "5 Andar", true, false, "Presencial"));
         employees.add(new Employee("Caio Márcio Raimundo Melo", "PO", "5 Andar", true, false, "Presencial"));
@@ -125,7 +124,7 @@ public abstract class Visual {
         return new Subsidiary("Serasa LTDA", "Serasa Consumidor", "21328349-34", "Serasa Blumenau", employees);
     };
 
-    public static boolean login(String username, String password) throws CustomException {
+    public static boolean login(String username, String password) {
         if(username.equals("carlos") && password.equals("123")) {
             return true;
         }
