@@ -5,7 +5,7 @@ import Model.*;
 
 import java.util.ArrayList;
 
-public abstract class Interface {
+public abstract class Visual {
 
     private static float getRisk(Subsidiary subsidiary) {
         int totalEmployees = getTotalEmployees(subsidiary);

@@ -3,6 +3,7 @@ package Model;
 import Controller.Database;
 import CustomException.CustomException;
 
+import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -13,13 +14,13 @@ public abstract class SubsidiaryDao {
         ResultSet rs = null;
         ArrayList<Subsidiary> subsidiaries = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM subsidiaries WHERE employeesList LIKE ?";
+            String sql = "SELECT * FROM enterprises WHERE employeesList LIKE ?";
             pstmt = Database.connect().prepareStatement(sql);
             pstmt.setInt(1, employeeId);
             pstmt.execute();
             rs = pstmt.getResultSet();
             if(rs.next()) {
-                subsidiaries.add(new Subsidiary(rs.getString("companyName"), rs.getString("fantasyName"), rs.getString("cnpj")));
+                subsidiaries.add(new Subsidiary(rs.getString("companyName"), rs.getString("fantasyName"), rs.getString("cnpj"), rs.getInt("id"), rs.getString("displayName")));
             }
         } catch (Exception error) {
             throw new CustomException("Erro ao buscar no banco de dados: " + error.getMessage());
@@ -33,6 +34,10 @@ public abstract class SubsidiaryDao {
                 }
             } catch (Exception error){}
             Database.closeConnectionDatabase();
+        }
+
+        for (Subsidiary subsidiary: subsidiaries) {
+           //TODO
         }
         return subsidiaries;
     }
