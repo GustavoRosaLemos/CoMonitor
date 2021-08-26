@@ -130,6 +130,9 @@ public abstract class Visual {
         ArrayList<Subsidiary> subsidiaryList = new ArrayList<>();
 
         ArrayList<Employee> employees = new ArrayList<>();
+        Employee e1 = new Employee("Gustavo Lemos", "Desenvolvedor", "5 Andar", true, false, "Presencial");
+        e1.addEmail(new Email("Pessoal", "dev.gustavolemos@outlook.com"));
+        employees.add(e1);
         employees.add(new Employee("Yuri Renato Baptista", "Desenvolvedor", "5 Andar", true, false, "Presencial"));
         employees.add(new Employee("Caio Márcio Raimundo Melo", "PO", "5 Andar", true, false, "Presencial"));
         employees.add(new Employee("Malu Heloise Mariah da Mota", "QO", "5 Andar", false, false, "HomeOffice"));
@@ -162,10 +165,15 @@ public abstract class Visual {
         return Mail.Send(title, description, receiver);
     }
 
-    public static boolean sendMultipleMail(String title, String description, ArrayList<Email> emails) {
+    public static boolean sendMultipleMail(String title, String description, ArrayList<Employee> employees) {
+        System.out.println("Enviando emails!");
         try {
-            for (Email email: emails) {
-                Mail.Send(title, description, email.getValue());
+            for (Employee employee: employees) {
+                System.out.println("Verificando...");
+                if(employee.getEmails().size() > 0) {
+                    System.out.println("Email enviado!");
+                    Mail.Send(title, description, employee.getEmails().get(0).getValue());
+                }
             }
         } catch (Exception e) {
             return false;

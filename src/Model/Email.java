@@ -1,18 +1,12 @@
 package Model;
 
 public class Email {
-    private int id;
     private String type;
     private String value;
 
-    public Email(int id, String type, String value) {
-        this.id = id;
+    public Email(String type, String value) {
         this.type = type;
         this.value = value;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getType() {

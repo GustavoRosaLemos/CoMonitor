@@ -52,42 +52,42 @@ public class Alerts extends javax.swing.JFrame {
         btnLockdown.setText("LOCKDOWN ");
         btnLockdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLockdownActionPerformed(evt);
+                Visual.sendMultipleMail("!!!LOCKDOWN EMERGENCIAL!!!", "Para a sua segurança, recomendamos que não vá mais a sede presencial da empresa.\n\nEssa medida é por tempo indeterminado!", Visual.getSubsidiary().getEmployees());
             }
         });
 
         bntChangeSistem.setText("SISTEMAS DE RODIZIO");
         bntChangeSistem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntChangeSistemActionPerformed(evt);
+                Visual.sendMultipleMail("Sistema de Rodizio", "O sistema de rodizio está ativo!\n\nFuncionários que tem idade impar devem trabalhar em dias impares, e funcionarios que tem idade par devem trabalhar em dias pares.\n\nAgradecemos a sua colaboração!", Visual.getSubsidiary().getEmployees());
             }
         });
 
         btnDistanceAlert.setText("AVISO DE  DISTANCIAMENTO");
         btnDistanceAlert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDistanceAlertActionPerformed(evt);
+                Visual.sendMultipleMail("Colabore com o distanciamento social", "Para a sua segurança e a de terceiros mantenha uma distância de 3m de outros funcionários.\n\nTambém é necessário manter um acento de distância nas mesas de trabalho.\n\nAgradecemos a sua colaboração!", Visual.getSubsidiary().getEmployees());
             }
         });
 
         bntgInfectedAlert.setText("AVISO DE INFECTADOS");
         bntgInfectedAlert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntgInfectedAlertActionPerformed(evt);
+                Visual.sendMultipleMail("Relatório de Infectados", "A " + Visual.getSubsidiary().getDisplayName() + " já está registrando o número de " + Visual.getTotalInfecteds(Visual.getSubsidiary()) + " infectados.\n\nLembre-se de sempre seguir as recomendações de saude!", Visual.getSubsidiary().getEmployees());
             }
         });
 
         bntVaccinatedAlert.setText("AVISO DE VACINADOS");
         bntVaccinatedAlert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntVaccinatedAlertActionPerformed(evt);
+                Visual.sendMultipleMail("Relatório de Vacionados", "A " + Visual.getSubsidiary().getDisplayName() + " já está registrando o número de " + Visual.getTotalImmunizeds(Visual.getSubsidiary()) + " imunizados.\n\nVamos aumentar esse número, vacine-se você também!", Visual.getSubsidiary().getEmployees());
             }
         });
 
         bntCleanAlert.setText("AVISO DE LIMPEZA");
         bntCleanAlert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntCleanAlertActionPerformed(evt);
+                Visual.sendMultipleMail("Aviso de Limpeza", "Lembrete: Nosso unidade recebera higienização completa no dia 26, nesse dia todos devem ficar de homeoffice!", Visual.getSubsidiary().getEmployees());
             }
         });
 
