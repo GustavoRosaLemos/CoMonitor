@@ -16,6 +16,8 @@ public class Employee {
         this.fullName = fullName;
         this.role = role;
         this.location = location;
+        this.emails = new ArrayList<>();
+        this.phones = new ArrayList<>();
     }
 
     public Employee(String fullName, String role, String location, boolean infected, boolean immunized) {
@@ -24,6 +26,8 @@ public class Employee {
         this.location = location;
         this.infected = infected;
         this.immunized = immunized;
+        this.emails = new ArrayList<>();
+        this.phones = new ArrayList<>();
     }
 
     public Employee(String fullName, String role, String location, String workMethod) {
@@ -31,6 +35,8 @@ public class Employee {
         this.role = role;
         this.location = location;
         this.workMethod = workMethod;
+        this.emails = new ArrayList<>();
+        this.phones = new ArrayList<>();
     }
 
     public Employee(String fullName, String role, String location, boolean infected, boolean immunized, String workMethod) {
@@ -40,6 +46,8 @@ public class Employee {
         this.infected = infected;
         this.immunized = immunized;
         this.workMethod = workMethod;
+        this.emails = new ArrayList<>();
+        this.phones = new ArrayList<>();
     }
 
     public Employee(String fullName, String role, String location, boolean infected, boolean immunized, String workMethod, ArrayList<Email> emails, ArrayList<Phone> phones) {

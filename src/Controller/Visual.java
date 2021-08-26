@@ -5,7 +5,7 @@ import Model.*;
 import java.util.ArrayList;
 
 public abstract class Visual {
-
+    private static Subsidiary selectedSubisidiary;
     private static float getRisk(Subsidiary subsidiary) {
         int totalEmployees = getTotalEmployees(subsidiary);
         int totalHomeOffice = getTotalHomeOffice(subsidiary);
@@ -113,7 +113,26 @@ public abstract class Visual {
     };
 
     public static Subsidiary getSubsidiary() {
+        return selectedSubisidiary;
+    };
+
+    public static boolean setSubsidiary(Subsidiary subsidiary) {
+        try {
+            selectedSubisidiary = subsidiary;
+        } catch (Exception e) {
+            return false;
+        }
+
+        return true;
+    };
+
+    public static ArrayList<Subsidiary> getSubsidiaryList() {
+        ArrayList<Subsidiary> subsidiaryList = new ArrayList<>();
+
         ArrayList<Employee> employees = new ArrayList<>();
+        Employee e1 = new Employee("Gustavo Lemos", "Desenvolvedor", "5 Andar", true, false, "Presencial");
+        e1.addEmail(new Email("Pessoal", "dev.gustavolemos@outlook.com"));
+        employees.add(e1);
         employees.add(new Employee("Yuri Renato Baptista", "Desenvolvedor", "5 Andar", true, false, "Presencial"));
         employees.add(new Employee("Caio Márcio Raimundo Melo", "PO", "5 Andar", true, false, "Presencial"));
         employees.add(new Employee("Malu Heloise Mariah da Mota", "QO", "5 Andar", false, false, "HomeOffice"));
@@ -121,13 +140,44 @@ public abstract class Visual {
         employees.add(new Employee("Silvana Fabiana Bárbara Farias", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
         employees.add(new Employee("Alícia Caroline Santos", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
         employees.add(new Employee("Diogo Vicente Antonio Rocha", "Gerente", "5 Andar", false, true, "Presencial"));
-        return new Subsidiary("Serasa LTDA", "Serasa Consumidor", "21328349-34", "Serasa Blumenau", employees);
+        subsidiaryList.add(new Subsidiary("Serasa LTDA", "Serasa Consumidor", "21328349-34", "BU Blumenau", employees));
+        return subsidiaryList;
     };
 
+    public static Subsidiary getSubisidiaryByDisplayName(String displayName) {
+        ArrayList<Subsidiary> subsidiaryList = getSubsidiaryList();
+        for (Subsidiary subsidiary: subsidiaryList) {
+            if(subsidiary.getDisplayName().equals(displayName)) {
+                return subsidiary;
+            }
+        }
+        return null;
+    }
+
     public static boolean login(String username, String password) {
-        if(username.equals("carlos") && password.equals("123")) {
+        if(username.equals("gabe") && password.equals("steam")) {
             return true;
         }
         return false;
+    }
+
+    public static boolean sendMail(String title, String description, String receiver) {
+        return Mail.Send(title, description, receiver);
+    }
+
+    public static boolean sendMultipleMail(String title, String description, ArrayList<Employee> employees) {
+        System.out.println("Enviando emails!");
+        try {
+            for (Employee employee: employees) {
+                System.out.println("Verificando...");
+                if(employee.getEmails().size() > 0) {
+                    System.out.println("Email enviado!");
+                    Mail.Send(title, description, employee.getEmails().get(0).getValue());
+                }
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 }
