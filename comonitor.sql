@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `emails`
 --
 
-CREATE DATABASE [IF NOT EXISTS] comonitor;
+CREATE DATABASE comonitor;
 USE comonitor;
 
 CREATE TABLE `emails` (
