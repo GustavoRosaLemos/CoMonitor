@@ -149,9 +149,12 @@ public abstract class Visual {
         ArrayList<Employee> employees3 = new ArrayList<>();
         Employee e3 = new Employee("Gustavo Lemos", "Desenvolvedor", "5 Andar", true, false, "Presencial");
         e3.addEmail(new Email("Profissional", "dev.gustavolemos@outlook.com"));
+        e3.addPhone(new Phone("Pessoal", "48", "888888888"));
+        e3.addPhone(new Phone("Profissional", "48", "223355"));
         ArrayList<Employee> employees4 = new ArrayList<>();
         Employee e4 = new Employee("Paulo Dalescio", "Estagiário", "Sala do Zelador", false, true, "Presencial");
         e4.addEmail(new Email("Pessoal", "paulodalescio@gmail.com"));
+        e4.addPhone(new Phone("Pessoal", "92", "999999999"));
         employees2.add(e3);
         employees2.add(e4);
         employees2.add(new Employee("José Marcos da Luz", "Desenvolvedor", "5 Andar", false, false, "Presencial"));
