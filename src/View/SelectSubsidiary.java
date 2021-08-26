@@ -46,7 +46,6 @@ public class SelectSubsidiary extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        TitleSubisidiary.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         TitleSubisidiary.setText("Selecionar subisidaria");
 
         BackSubsidiary.setText("Sair");
