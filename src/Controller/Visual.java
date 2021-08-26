@@ -41,6 +41,10 @@ public abstract class Visual {
         return subsidiary.getEmployees().size();
     }
 
+    public static int getTotalEmployees(ArrayList<Employee> employees) {
+        return employees.size();
+    }
+
     public static int getTotalPresential(Subsidiary subsidiary) {
         int totalPresential = 0;
 
