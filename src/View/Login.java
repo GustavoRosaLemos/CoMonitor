@@ -96,7 +96,7 @@ public class Login extends javax.swing.JFrame {
         if(Visual.login(tfdUserLogin.getText(),tfdPasswordLogin.getText())){
             setVisible(false);
             dispose();
-            Home.execute();
+            SelectSubsidiary.execute();
         }
         }
 

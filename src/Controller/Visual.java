@@ -5,7 +5,7 @@ import Model.*;
 import java.util.ArrayList;
 
 public abstract class Visual {
-
+    private static Subsidiary selectedSubisidiary;
     private static float getRisk(Subsidiary subsidiary) {
         int totalEmployees = getTotalEmployees(subsidiary);
         int totalHomeOffice = getTotalHomeOffice(subsidiary);
@@ -113,6 +113,22 @@ public abstract class Visual {
     };
 
     public static Subsidiary getSubsidiary() {
+        return selectedSubisidiary;
+    };
+
+    public static boolean setSubsidiary(Subsidiary subsidiary) {
+        try {
+            selectedSubisidiary = subsidiary;
+        } catch (Exception e) {
+            return false;
+        }
+
+        return true;
+    };
+
+    public static ArrayList<Subsidiary> getSubsidiaryList() {
+        ArrayList<Subsidiary> subsidiaryList = new ArrayList<>();
+
         ArrayList<Employee> employees = new ArrayList<>();
         employees.add(new Employee("Yuri Renato Baptista", "Desenvolvedor", "5 Andar", true, false, "Presencial"));
         employees.add(new Employee("Caio Márcio Raimundo Melo", "PO", "5 Andar", true, false, "Presencial"));
@@ -121,11 +137,12 @@ public abstract class Visual {
         employees.add(new Employee("Silvana Fabiana Bárbara Farias", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
         employees.add(new Employee("Alícia Caroline Santos", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
         employees.add(new Employee("Diogo Vicente Antonio Rocha", "Gerente", "5 Andar", false, true, "Presencial"));
-        return new Subsidiary("Serasa LTDA", "Serasa Consumidor", "21328349-34", "BU Blumenau", employees);
+        subsidiaryList.add(new Subsidiary("Serasa LTDA", "Serasa Consumidor", "21328349-34", "BU Blumenau", employees));
+        return subsidiaryList;
     };
 
     public static boolean login(String username, String password) {
-        if(username.equals("carlos") && password.equals("123")) {
+        if(username.equals("gabe") && password.equals("steam")) {
             return true;
         }
         return false;

@@ -5,6 +5,11 @@
  */
 package View;
 
+import Controller.Visual;
+import Model.Subsidiary;
+
+import javax.swing.*;
+
 /**
  *
  * @author paulo
@@ -16,6 +21,10 @@ public class SelectSubsidiary extends javax.swing.JFrame {
      */
     public SelectSubsidiary() {
         initComponents();
+        for (Subsidiary subsidiary: Visual.getSubsidiaryList()) {
+            l1.addElement(subsidiary.getDisplayName());
+        }
+        listSubisidiary.setModel(l1);
     }
 
     /**
@@ -33,7 +42,8 @@ public class SelectSubsidiary extends javax.swing.JFrame {
         SearchSubsidiary = new javax.swing.JTextField();
         SearchNameSubsidiary = new javax.swing.JToggleButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableSubisidiary = new javax.swing.JTable();
+        listSubisidiary = new javax.swing.JList<String>();
+        l1 = new DefaultListModel<>();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -54,9 +64,8 @@ public class SelectSubsidiary extends javax.swing.JFrame {
 
         SearchNameSubsidiary.setText("Buscar");
 
-        tableSubisidiary.setColumnSelectionAllowed(true);
-        jScrollPane2.setViewportView(tableSubisidiary);
-        tableSubisidiary.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        jScrollPane2.setViewportView(listSubisidiary);
+
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,6 +149,7 @@ public class SelectSubsidiary extends javax.swing.JFrame {
     private javax.swing.JLabel TitleSubisidiary;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tableSubisidiary;
+    private javax.swing.JList<String> listSubisidiary;
+    private DefaultListModel<String> l1;
     // End of variables declaration//GEN-END:variables
 }
