@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Subsidiary extends Company {
     private String displayName;
     private ArrayList<Employee> employees;
-    private String employeesList = "";
 
     public Subsidiary(String companyName, String fantasyName, String cnpj, String displayName) {
         super(companyName, fantasyName, cnpj);
@@ -19,24 +18,8 @@ public class Subsidiary extends Company {
         this.employees = employees;
     }
 
-    public Subsidiary(String companyName, String fantasyName, String cnpj, String displayName, ArrayList<Employee> employees, String employeesList) {
-        super(companyName, fantasyName, cnpj);
-        this.displayName = displayName;
-        this.employees = employees;
-        this.employeesList = employeesList;
-    }
-
     public String getDisplayName() {
         return displayName;
-    }
-
-    public boolean setDisplayName(String displayName) {
-        if(displayName instanceof  String) {
-            this.displayName = displayName;
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public ArrayList<Employee> getEmployees() {
@@ -51,10 +34,6 @@ public class Subsidiary extends Company {
         employees.remove(employee);
     }
 
-    public String getEmployeesList() {
-        return employeesList;
-    }
-
     public void setEmployees(ArrayList<Employee> employees) {
         this.employees = employees;
     }
@@ -64,14 +43,13 @@ public class Subsidiary extends Company {
         return "Subsidiary{" +
                 "displayName='" + displayName + '\'' +
                 ", employees=" + employees +
-                ", employeesList='" + employeesList + '\'' +
                 '}';
     }
 
     public void print() {
         System.out.println(displayName);
         for (Employee employee:employees) {
-            System.out.println("Nome Completo: " + employee.getFullName() + ", Cargo: " + employee.getRole() + ", Regime de Trabalho: " + employee.getWorkMethod());
+            System.out.println("Nome Completo: " + employee.getFullName() + ", Cargo: " + employee.getRole() + ", Regime de Trabalho: " + employee.getWorkMethod() + ", Emails: " + employee.getEmails() + ", Telefones: " + employee.getPhones());
         }
     }
 }

@@ -66,65 +66,20 @@ public class Employee {
         return fullName;
     }
 
-    public boolean setFullName(String fullName) {
-        if(fullName instanceof String) {
-            this.fullName = fullName;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public String getRole() {
         return role;
-    }
-
-    public boolean setRole(String role) {
-        if(role instanceof String) {
-            this.role = role;
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public String getLocation() {
         return location;
     }
 
-    public boolean setLocation(String location) {
-        if(location instanceof String) {
-            this.location = location;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public boolean isInfected() {
         return infected;
     }
 
-    public boolean setInfected(boolean infected) {
-        if(infected != this.infected) {
-            this.infected = infected;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public boolean isImmunized() {
         return immunized;
-    }
-
-    public boolean setImmunized(boolean immunized) {
-        if(immunized != this.immunized) {
-            this.immunized = immunized;
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public String getWorkMethod() {
