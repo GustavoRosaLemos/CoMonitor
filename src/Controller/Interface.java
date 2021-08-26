@@ -1,7 +1,9 @@
 package Controller;
 
-import Model.Employee;
-import Model.Subsidiary;
+import CustomException.CustomException;
+import Model.*;
+
+import java.util.ArrayList;
 
 public abstract class Interface {
 
@@ -97,5 +99,23 @@ public abstract class Interface {
         } else {
             return "Não";
         }
+    }
+
+    public static boolean login(String username, String password) throws CustomException {
+        User resultUser = UserDAO.getUser(username);
+
+        if(resultUser.getId() == 0) {
+            return false;
+        }
+
+        if(username.equals(resultUser.getUsername()) && password.equals(resultUser.getPassword())) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static ArrayList<Subsidiary> getUserSubsidiaries(int employeeId) throws CustomException {
+        return SubsidiaryDao.getSubsidiaries(employeeId);
     }
 }

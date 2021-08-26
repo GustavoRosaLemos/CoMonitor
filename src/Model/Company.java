@@ -1,21 +1,16 @@
 package Model;
 
 public class Company {
-    private int id;
     private String companyName;
     private String fantasyName;
     private String cnpj;
 
-    public Company(int id, String companyName, String fantasyName, String cnpj) {
-        this.id = id;
+    public Company(String companyName, String fantasyName, String cnpj) {
         this.companyName = companyName;
         this.fantasyName = fantasyName;
         this.cnpj = cnpj;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getCompanyName() {
         return companyName;
@@ -50,7 +45,6 @@ public class Company {
     @Override
     public String toString() {
         return "CompanyModel{" +
-                "id=" + id +
                 ", companyName='" + companyName + '\'' +
                 ", fantasyName='" + fantasyName + '\'' +
                 ", cnpj='" + cnpj + '\'' +

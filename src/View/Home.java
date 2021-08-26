@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.*;
+
 /**
  *
  * @author paulo

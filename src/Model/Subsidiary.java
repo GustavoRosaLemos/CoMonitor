@@ -7,15 +7,15 @@ public class Subsidiary extends Company {
     private String displayName;
     private ArrayList<Employee> employees;
 
-    public Subsidiary(int id, String companyName, String fantasyName, String cnpj, int id1, String displayName) {
-        super(id, companyName, fantasyName, cnpj);
+    public Subsidiary(String companyName, String fantasyName, String cnpj, int id1, String displayName) {
+        super(companyName, fantasyName, cnpj);
         this.id = id1;
         this.displayName = displayName;
         this.employees = new ArrayList<Employee>();
     }
 
-    public Subsidiary(int id, String companyName, String fantasyName, String cnpj, int id1, String displayName, ArrayList<Employee> employees) {
-        super(id, companyName, fantasyName, cnpj);
+    public Subsidiary(String companyName, String fantasyName, String cnpj, int id1, String displayName, ArrayList<Employee> employees) {
+        super(companyName, fantasyName, cnpj);
         this.id = id1;
         this.displayName = displayName;
         this.employees = employees;
