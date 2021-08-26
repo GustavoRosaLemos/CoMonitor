@@ -67,4 +67,11 @@ public class Subsidiary extends Company {
                 ", employeesList='" + employeesList + '\'' +
                 '}';
     }
+
+    public void imprimir() {
+        System.out.println(displayName);
+        for (Employee employee:employees) {
+            System.out.println("Nome Completo: " + employee.getFullName() + ", Cargo: " + employee.getRole() + ", Regime de Trabalho: " + employee.getWorkMethod());
+        }
+    }
 }
