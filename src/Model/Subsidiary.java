@@ -55,6 +55,10 @@ public class Subsidiary extends Company {
         return employeesList;
     }
 
+    public void setEmployees(ArrayList<Employee> employees) {
+        this.employees = employees;
+    }
+
     @Override
     public String toString() {
         return "Subsidiary{" +
