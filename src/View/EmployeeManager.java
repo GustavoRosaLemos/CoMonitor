@@ -26,7 +26,7 @@ public class EmployeeManager extends javax.swing.JFrame {
 
         initComponents();
         titleSubEmployeeManager.setText(Visual.getSubsidiary().getDisplayName());
-        Visual.getSubsidiary().imprimir();
+        Visual.getSubsidiary().print();
     }
 
     /**
