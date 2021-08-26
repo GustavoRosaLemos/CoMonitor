@@ -28,7 +28,7 @@ public class Alerts extends javax.swing.JFrame {
     private void initComponents() {
 
         titleAlert = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        titleSubTitle = new javax.swing.JLabel();
         btnLockdown = new javax.swing.JButton();
         bntChangeSistem = new javax.swing.JButton();
         btnDistanceAlert = new javax.swing.JButton();
@@ -42,8 +42,8 @@ public class Alerts extends javax.swing.JFrame {
         titleAlert.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         titleAlert.setText("Quadros de Alertas");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Subisidiaria");
+        titleSubTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        titleSubTitle.setText("Subisidiaria");
 
         btnLockdown.setText("LOCKDOWN ");
         btnLockdown.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +53,11 @@ public class Alerts extends javax.swing.JFrame {
         });
 
         bntChangeSistem.setText("SISTEMAS DE RODIZIO");
+        bntChangeSistem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntChangeSistemActionPerformed(evt);
+            }
+        });
 
         btnDistanceAlert.setText("AVISO DE  DISTANCIAMENTO");
         btnDistanceAlert.addActionListener(new java.awt.event.ActionListener() {
@@ -62,63 +67,84 @@ public class Alerts extends javax.swing.JFrame {
         });
 
         bntgInfectedAlert.setText("AVISO DE INFECTADOS");
+        bntgInfectedAlert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntgInfectedAlertActionPerformed(evt);
+            }
+        });
 
         bntVaccinatedAlert.setText("AVISO DE VACINADOS");
+        bntVaccinatedAlert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntVaccinatedAlertActionPerformed(evt);
+            }
+        });
 
         bntCleanAlert.setText("AVISO DE LIMPEZA");
+        bntCleanAlert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntCleanAlertActionPerformed(evt);
+            }
+        });
 
         backAlert.setText("Voltar");
+        backAlert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backAlertActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btnLockdown, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(bntgInfectedAlert, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-                                .addGap(37, 37, 37)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(bntChangeSistem, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                        .addComponent(bntVaccinatedAlert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(bntCleanAlert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnDistanceAlert, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-                                .addGap(48, 48, 48))
                         .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGap(295, 295, 295)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                                        .addComponent(jLabel2)
-                                                        .addComponent(titleAlert)))
+                                                .addGap(270, 270, 270)
+                                                .addComponent(titleAlert))
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGap(32, 32, 32)
-                                                .addComponent(backAlert)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(310, 310, 310)
+                                                .addComponent(titleSubTitle))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(30, 30, 30)
+                                                .addComponent(btnLockdown, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(30, 30, 30)
+                                                .addComponent(bntChangeSistem, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(40, 40, 40)
+                                                .addComponent(btnDistanceAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(30, 30, 30)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(backAlert)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(bntgInfectedAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(30, 30, 30)
+                                                                .addComponent(bntVaccinatedAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(40, 40, 40)
+                                                                .addComponent(bntCleanAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addGap(56, 56, 56)
+                                .addGap(50, 50, 50)
                                 .addComponent(titleAlert)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2)
-                                .addGap(112, 112, 112)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btnLockdown, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnDistanceAlert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(bntChangeSistem, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                .addGap(8, 8, 8)
+                                .addComponent(titleSubTitle)
+                                .addGap(113, 113, 113)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnLockdown, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bntChangeSistem, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnDistanceAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(14, 14, 14)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(bntgInfectedAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(bntCleanAlert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(bntVaccinatedAlert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                                        .addComponent(bntVaccinatedAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bntCleanAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                                 .addComponent(backAlert)
-                                .addGap(20, 20, 20))
+                                .addGap(33, 33, 33))
         );
 
         pack();
@@ -132,7 +158,32 @@ public class Alerts extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    public static void execute() {
+    private void backAlertActionPerformed(java.awt.event.ActionEvent evt) {
+        setVisible(false);
+        dispose();
+        Home.execute();
+    }
+
+    private void bntgInfectedAlertActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void bntChangeSistemActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void bntVaccinatedAlertActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void bntCleanAlertActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -164,6 +215,14 @@ public class Alerts extends javax.swing.JFrame {
         });
     }
 
+    public static void execute() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Alerts().setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify
     private javax.swing.JButton backAlert;
     private javax.swing.JButton bntChangeSistem;
@@ -172,7 +231,7 @@ public class Alerts extends javax.swing.JFrame {
     private javax.swing.JButton bntgInfectedAlert;
     private javax.swing.JButton btnDistanceAlert;
     private javax.swing.JButton btnLockdown;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel titleAlert;
+    private javax.swing.JLabel titleSubTitle;
     // End of variables declaration
 }
