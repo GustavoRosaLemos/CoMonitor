@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Ago-2021 às 15:53
+-- Tempo de geração: 26-Ago-2021 às 05:02
 -- Versão do servidor: 10.4.19-MariaDB
 -- versão do PHP: 7.4.20
 
@@ -21,30 +21,16 @@ SET time_zone = "+00:00";
 -- Banco de dados: `banco_prog`
 --
 
-CREATE DATABASE comonitor;
+-- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `emails`
+--
+
+CREATE DATABASE comonitor;
 USE comonitor;
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `company`
---
-
-CREATE TABLE `company` (
-  `id` text NOT NULL,
-  `companyName` text NOT NULL,
-  `fantasyName` text NOT NULL,
-  `cnpj` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `email`
---
-
-CREATE TABLE `email` (
+CREATE TABLE `emails` (
   `id` text NOT NULL,
   `type` text NOT NULL,
   `value` text NOT NULL,
@@ -54,26 +40,48 @@ CREATE TABLE `email` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `employee`
+-- Estrutura da tabela `employees`
 --
 
-CREATE TABLE `employee` (
+CREATE TABLE `employees` (
   `id` text NOT NULL,
   `fullName` text NOT NULL,
   `role` text NOT NULL,
   `section` text NOT NULL,
   `location` text NOT NULL,
   `infected` tinyint(1) NOT NULL,
-  `immunized` tinyint(1) NOT NULL
+  `immunized` tinyint(1) NOT NULL,
+  `workMethod` text NOT NULL,
+  `employeeld` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `phone`
+-- Estrutura da tabela `enterprises`
 --
 
-CREATE TABLE `phone` (
+CREATE TABLE `enterprises` (
+  `id` text NOT NULL,
+  `companyName` text NOT NULL,
+  `fantasyName` text NOT NULL,
+  `CNPJ` text NOT NULL,
+  `fullName` text NOT NULL,
+  `role` text NOT NULL,
+  `section` text NOT NULL,
+  `location` text NOT NULL,
+  `infected` text NOT NULL,
+  `immunized` text NOT NULL,
+  `employeesList` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `phones`
+--
+
+CREATE TABLE `phones` (
   `id` text NOT NULL,
   `type` text NOT NULL,
   `ddd` text NOT NULL,
@@ -84,27 +92,14 @@ CREATE TABLE `phone` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `subsidiary`
+-- Estrutura da tabela `users`
 --
 
-CREATE TABLE `subsidiary` (
-  `id` text NOT NULL,
-  `displayName` text NOT NULL,
-  `employees` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `user`
---
-
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `id` text NOT NULL,
   `username` text NOT NULL,
   `password` text NOT NULL,
-  `isAdmin` tinyint(1) NOT NULL,
-  `permissions` text NOT NULL
+  `isAdmin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
 
