@@ -6,6 +6,9 @@
 package View;
 
 import Controller.Visual;
+import Model.Employee;
+import Model.Subsidiary;
+import Model.User;
 
 /**
  *
