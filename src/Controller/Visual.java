@@ -101,6 +101,21 @@ public abstract class Visual {
         }
     }
 
+    public static User getUser(String username) throws CustomException {
+        User user = UserDAO.getUser(username);
+        return user;
+    };
+
+    public static Employee getEmployeeByUser(User user) throws CustomException {
+        Employee employee = EmployeeDao.getEmployee(user.getEmployeeId());
+        return employee;
+    };
+
+    public static Employee getEmployeeByUser(int employeeId) throws CustomException {
+        Employee employee = EmployeeDao.getEmployee(employeeId);
+        return employee;
+    };
+
     public static boolean login(String username, String password) throws CustomException {
         User resultUser = UserDAO.getUser(username);
 
