@@ -172,12 +172,13 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "EmployeeModel{" +
-                ", fullName='" + fullName + '\'' +
+        return "Employee{" +
+                "fullName='" + fullName + '\'' +
                 ", role='" + role + '\'' +
                 ", location='" + location + '\'' +
                 ", infected=" + infected +
                 ", immunized=" + immunized +
+                ", workMethod='" + workMethod + '\'' +
                 ", emails=" + emails +
                 ", phones=" + phones +
                 '}';

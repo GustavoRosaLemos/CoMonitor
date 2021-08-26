@@ -16,4 +16,12 @@ public class Email {
     public String getValue() {
         return value;
     }
+
+    @Override
+    public String toString() {
+        return "Email{" +
+                "type='" + type + '\'' +
+                ", value='" + value + '\'' +
+                '}';
+    }
 }
