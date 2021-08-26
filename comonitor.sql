@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Ago-2021 às 05:02
+-- Tempo de geração: 26-Ago-2021 às 05:23
 -- Versão do servidor: 10.4.19-MariaDB
 -- versão do PHP: 7.4.20
 
@@ -66,13 +66,9 @@ CREATE TABLE `enterprises` (
   `companyName` text NOT NULL,
   `fantasyName` text NOT NULL,
   `CNPJ` text NOT NULL,
-  `fullName` text NOT NULL,
-  `role` text NOT NULL,
-  `section` text NOT NULL,
-  `location` text NOT NULL,
-  `infected` text NOT NULL,
-  `immunized` text NOT NULL,
-  `employeesList` text NOT NULL
+  `employeesList` text NOT NULL,
+  `displayName` text NOT NULL,
+  `employees` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
