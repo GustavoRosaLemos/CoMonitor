@@ -26,6 +26,7 @@ public class EmployeeManager extends javax.swing.JFrame {
 
         initComponents();
         titleSubEmployeeManager.setText(Visual.getSubsidiary().getDisplayName());
+        Visual.getSubsidiary().imprimir();
     }
 
     /**
@@ -195,7 +196,7 @@ public class EmployeeManager extends javax.swing.JFrame {
             subsidiary.addEmployee(new Employee(tableModel.getDataVector().get(i).get(0).toString(), tableModel.getDataVector().get(i).get(1).toString(), tableModel.getDataVector().get(i).get(2).toString(), isInfected, isImmunized, tableModel.getDataVector().get(i).get(5).toString()));
         }
         Visual.setSubsidiary(subsidiary);
-        System.out.println("Funcionário adicionado com sucesso!");
+        JOptionPane.showMessageDialog(null, "Modificação salva com sucesso!");
     }
 
     public static void execute() {
