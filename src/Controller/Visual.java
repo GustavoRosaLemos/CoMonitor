@@ -101,36 +101,34 @@ public abstract class Visual {
         }
     }
 
-    public static User getUser(String username) throws CustomException {
-        User user = UserDAO.getUser(username);
-        return user;
+    public static User getUser() throws CustomException {
+        return new User("", "", true);
     };
 
-    public static Employee getEmployeeByUser(User user) throws CustomException {
-        Employee employee = EmployeeDao.getEmployee(user.getEmployeeId());
-        return employee;
+    public static Employee getEmployee() throws CustomException {
+        return new Employee("Carlos José", "Gerente de TI", "5 Andar", "presencial");
     };
 
-    public static Employee getEmployeeByUser(int employeeId) throws CustomException {
-        Employee employee = EmployeeDao.getEmployee(employeeId);
-        return employee;
+    public static Company getCompany() throws CustomException {
+        return new Company("Serasa LTDA", "Serasa Consumidor", "21328349-34");
+    };
+
+    public static Subsidiary getSubsidiary() throws CustomException {
+        ArrayList<Employee> employees = new ArrayList<>();
+        employees.add(new Employee("Yuri Renato Baptista", "Desenvolvedor", "5 Andar", true, false, "Presencial"));
+        employees.add(new Employee("Caio Márcio Raimundo Melo", "PO", "5 Andar", true, false, "Presencial"));
+        employees.add(new Employee("Malu Heloise Mariah da Mota", "QO", "5 Andar", false, false, "HomeOffice"));
+        employees.add(new Employee("Clarice Cláudia Oliveira", "Desenvolvedor", "5 Andar", false, false, "Presencial"));
+        employees.add(new Employee("Silvana Fabiana Bárbara Farias", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
+        employees.add(new Employee("Alícia Caroline Santos", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
+        employees.add(new Employee("Diogo Vicente Antonio Rocha", "Gerente", "5 Andar", false, true, "Presencial"));
+        return new Subsidiary("Serasa LTDA", "Serasa Consumidor", "21328349-34", "Serasa Blumenau", employees);
     };
 
     public static boolean login(String username, String password) throws CustomException {
-        User resultUser = UserDAO.getUser(username);
-
-        if(resultUser.getId() == 0) {
-            return false;
-        }
-
-        if(username.equals(resultUser.getUsername()) && password.equals(resultUser.getPassword())) {
+        if(username.equals("carlos") && password.equals("123")) {
             return true;
         }
-
         return false;
-    }
-
-    public static ArrayList<Subsidiary> getUserSubsidiaries(int employeeId) throws CustomException {
-        return SubsidiaryDao.getSubsidiaries(employeeId);
     }
 }

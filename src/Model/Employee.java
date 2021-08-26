@@ -3,7 +3,6 @@ package Model;
 import java.util.ArrayList;
 
 public class Employee {
-    private int id;
     private String fullName;
     private String role;
     private String location;
@@ -13,15 +12,13 @@ public class Employee {
     private ArrayList<Email> emails;
     private ArrayList<Phone> phones;
 
-    public Employee(int id, String fullName, String role, String location) {
-        this.id = id;
+    public Employee(String fullName, String role, String location) {
         this.fullName = fullName;
         this.role = role;
         this.location = location;
     }
 
-    public Employee(int id, String fullName, String role, String location, boolean infected, boolean immunized) {
-        this.id = id;
+    public Employee(String fullName, String role, String location, boolean infected, boolean immunized) {
         this.fullName = fullName;
         this.role = role;
         this.location = location;
@@ -29,16 +26,14 @@ public class Employee {
         this.immunized = immunized;
     }
 
-    public Employee(int id, String fullName, String role, String location, String workMethod) {
-        this.id = id;
+    public Employee(String fullName, String role, String location, String workMethod) {
         this.fullName = fullName;
         this.role = role;
         this.location = location;
         this.workMethod = workMethod;
     }
 
-    public Employee(int id, String fullName, String role, String location, boolean infected, boolean immunized, String workMethod) {
-        this.id = id;
+    public Employee(String fullName, String role, String location, boolean infected, boolean immunized, String workMethod) {
         this.fullName = fullName;
         this.role = role;
         this.location = location;
@@ -47,8 +42,7 @@ public class Employee {
         this.workMethod = workMethod;
     }
 
-    public Employee(int id, String fullName, String role, String location, boolean infected, boolean immunized, String workMethod, ArrayList<Email> emails, ArrayList<Phone> phones) {
-        this.id = id;
+    public Employee(String fullName, String role, String location, boolean infected, boolean immunized, String workMethod, ArrayList<Email> emails, ArrayList<Phone> phones) {
         this.fullName = fullName;
         this.role = role;
         this.location = location;
@@ -59,9 +53,6 @@ public class Employee {
         this.phones = phones;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getFullName() {
         return fullName;
@@ -156,7 +147,6 @@ public class Employee {
     @Override
     public String toString() {
         return "EmployeeModel{" +
-                "id=" + id +
                 ", fullName='" + fullName + '\'' +
                 ", role='" + role + '\'' +
                 ", location='" + location + '\'' +

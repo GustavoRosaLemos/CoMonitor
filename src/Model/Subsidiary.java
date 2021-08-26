@@ -3,35 +3,27 @@ package Model;
 import java.util.ArrayList;
 
 public class Subsidiary extends Company {
-    private int id;
     private String displayName;
     private ArrayList<Employee> employees;
     private String employeesList = "";
 
-    public Subsidiary(String companyName, String fantasyName, String cnpj, int id1, String displayName) {
+    public Subsidiary(String companyName, String fantasyName, String cnpj, String displayName) {
         super(companyName, fantasyName, cnpj);
-        this.id = id1;
         this.displayName = displayName;
         this.employees = new ArrayList<Employee>();
     }
 
-    public Subsidiary(String companyName, String fantasyName, String cnpj, int id1, String displayName, ArrayList<Employee> employees) {
+    public Subsidiary(String companyName, String fantasyName, String cnpj, String displayName, ArrayList<Employee> employees) {
         super(companyName, fantasyName, cnpj);
-        this.id = id1;
         this.displayName = displayName;
         this.employees = employees;
     }
 
-    public Subsidiary(String companyName, String fantasyName, String cnpj, int id1, String displayName, ArrayList<Employee> employees, String employeesList) {
+    public Subsidiary(String companyName, String fantasyName, String cnpj, String displayName, ArrayList<Employee> employees, String employeesList) {
         super(companyName, fantasyName, cnpj);
-        this.id = id1;
         this.displayName = displayName;
         this.employees = employees;
         this.employeesList = employeesList;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getDisplayName() {
@@ -65,7 +57,6 @@ public class Subsidiary extends Company {
     @Override
     public String toString() {
         return "SubsidiaryModel{" +
-                "id=" + id +
                 ", displayName='" + displayName + '\'' +
                 ", employees=" + employees +
                 '}';
