@@ -144,7 +144,7 @@ public abstract class Visual {
         employees.add(new Employee("Silvana Fabiana Bárbara Farias", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
         employees.add(new Employee("Alícia Caroline Santos", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
         employees.add(new Employee("Diogo Vicente Antonio Rocha", "Gerente", "5 Andar", false, true, "Presencial"));
-        subsidiaryList.add(new Subsidiary("Crédito Fácil LTD", "Credito Fácil", "21328349-34", "Credito Fácil Blumenau", employees));
+        subsidiaryList.add(new Subsidiary("CPC LTD", "CPC", "21328349-34", "CPC Blumenau", employees));
 
         ArrayList<Employee> employees3 = new ArrayList<>();
         Employee e3 = new Employee("Gustavo Lemos", "Desenvolvedor", "5 Andar", true, false, "Presencial");
