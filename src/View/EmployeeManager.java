@@ -47,16 +47,6 @@ public class EmployeeManager extends javax.swing.JFrame {
 
         tblEmployeeManager.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null},
-                        {null, null, null, null, null, null}
                 },
                 new String [] {
                         "Nome", "Cargo", "Setor", "Infectado", "Vacinado", "Regime de Trabalho"
@@ -100,7 +90,7 @@ public class EmployeeManager extends javax.swing.JFrame {
             }
         });
 
-        btnEditEmployee.setText("Editar Funcionário");
+        btnEditEmployee.setText("Salvar Modificações");
         btnEditEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditEmployeeActionPerformed(evt);
