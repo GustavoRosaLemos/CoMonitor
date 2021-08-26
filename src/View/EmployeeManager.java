@@ -5,6 +5,15 @@
  */
 package View;
 
+import Controller.Visual;
+import Model.Employee;
+import Model.Subsidiary;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.Vector;
+
 /**
  *
  * @author paulo
@@ -15,7 +24,9 @@ public class EmployeeManager extends javax.swing.JFrame {
      * Creates new form EmplyeeManager
      */
     public EmployeeManager() {
+
         initComponents();
+
     }
 
     /**
@@ -27,10 +38,29 @@ public class EmployeeManager extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
+        Object [][] defaultData = new Object [][] {
+        };
+
+        Object [] defaultColumn = new String [] {
+                "Nome", "Cargo", "Setor", "Infectado", "Vacinado", "Regime de Trabalho"
+        };
+
+        tableModel = new DefaultTableModel(defaultData, defaultColumn);
+        for (Employee employee: Visual.getSubsidiary().getEmployees()) {
+            String isInfected = "Não";
+            String isImmunized = "Não";
+            if(employee.isInfected()) {
+                isInfected = "Sim";
+            }
+            if(employee.isImmunized()) {
+                isImmunized = "Sim";
+            }
+            tableModel.addRow(new Object[]{employee.getFullName(), employee.getRole(), employee.getLocation(), isInfected, isImmunized, employee.getWorkMethod()});
+        }
         titleEmployeeManager = new javax.swing.JLabel();
         titleSubEmployeeManager = new javax.swing.JLabel();
+        tblEmployeeManager = new JTable(tableModel);
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblEmployeeManager = new javax.swing.JTable();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         btnBackEmployeeManager = new javax.swing.JButton();
         btnAddEmployee = new javax.swing.JButton();
@@ -45,31 +75,9 @@ public class EmployeeManager extends javax.swing.JFrame {
         titleSubEmployeeManager.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         titleSubEmployeeManager.setText("Subsidiary");
 
-        tblEmployeeManager.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                },
-                new String [] {
-                        "Nome", "Cargo", "Setor", "Infectado", "Vacinado", "Regime de Trabalho"
-                }
-        ) {
-            Class[] types = new Class [] {
-                    java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                    true, false, true, true, true, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
         jScrollPane1.setViewportView(tblEmployeeManager);
 
-        btnBackEmployeeManager.setText("Voltar");
+        btnBackEmployeeManager.setText("< Voltar");
         btnBackEmployeeManager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackEmployeeManagerActionPerformed(evt);
@@ -153,24 +161,41 @@ public class EmployeeManager extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void btnBackEmployeeManagerActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        setVisible(false);
+        dispose();
+        Home.execute();
     }
 
     private void btnDeleteEmployeeActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        try {
+            tableModel.removeRow(tblEmployeeManager.getSelectedRow());
+        } catch (Exception e) {
+            System.out.println("É necessário selecionar a linha que você deseja remover!");
+        }
     }
 
     private void btnAddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        tableModel.addRow(new Object[] {"", "", "", "", "", ""});
     }
 
     private void btnEditEmployeeActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        Subsidiary subsidiary = Visual.getSubsidiary();
+        subsidiary.setEmployees(new ArrayList<>());
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+            boolean isInfected = false;
+            boolean isImmunized = false;
+            if(tableModel.getDataVector().get(i).get(3).equals("Sim") || tableModel.getDataVector().get(i).get(3).equals("sim") || tableModel.getDataVector().get(i).get(3).equals("S") || tableModel.getDataVector().get(i).get(3).equals("s")) {
+                isInfected = true;
+            }
+            if(tableModel.getDataVector().get(i).get(4).equals("Sim") || tableModel.getDataVector().get(i).get(4).equals("sim") || tableModel.getDataVector().get(i).get(4).equals("S") || tableModel.getDataVector().get(i).get(4).equals("s")) {
+                isImmunized = true;
+            }
+            subsidiary.addEmployee(new Employee(tableModel.getDataVector().get(i).get(0).toString(), tableModel.getDataVector().get(i).get(1).toString(), tableModel.getDataVector().get(i).get(2).toString(), isInfected, isImmunized, tableModel.getDataVector().get(i).get(5).toString()));
+        }
+        Visual.setSubsidiary(subsidiary);
+        System.out.println("Funcionário adicionado com sucesso!");
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void execute() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -214,5 +239,6 @@ public class EmployeeManager extends javax.swing.JFrame {
     private javax.swing.JTable tblEmployeeManager;
     private javax.swing.JLabel titleEmployeeManager;
     private javax.swing.JLabel titleSubEmployeeManager;
+    private DefaultTableModel tableModel;
     // End of variables declaration
 }

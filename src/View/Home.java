@@ -248,7 +248,9 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void btnManagerEmployeeActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        setVisible(false);
+        dispose();
+        EmployeeManager.execute();
     }
 
     private void lblRiskLevelComponentAdded(java.awt.event.ContainerEvent evt) {
