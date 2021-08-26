@@ -141,10 +141,35 @@ public abstract class Visual {
         return subsidiaryList;
     };
 
+    public static Subsidiary getSubisidiaryByDisplayName(String displayName) {
+        ArrayList<Subsidiary> subsidiaryList = getSubsidiaryList();
+        for (Subsidiary subsidiary: subsidiaryList) {
+            if(subsidiary.getDisplayName().equals(displayName)) {
+                return subsidiary;
+            }
+        }
+        return null;
+    }
+
     public static boolean login(String username, String password) {
         if(username.equals("gabe") && password.equals("steam")) {
             return true;
         }
         return false;
+    }
+
+    public static boolean sendMail(String title, String description, String receiver) {
+        return Mail.Send(title, description, receiver);
+    }
+
+    public static boolean sendMultipleMail(String title, String description, ArrayList<Email> emails) {
+        try {
+            for (Email email: emails) {
+                Mail.Send(title, description, email.getValue());
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 }

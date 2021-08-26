@@ -125,7 +125,9 @@ public class Home extends javax.swing.JFrame {
         jButton3.setText("Voltar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                setVisible(false);
+                dispose();
+                SelectSubsidiary.execute();
             }
         });
 

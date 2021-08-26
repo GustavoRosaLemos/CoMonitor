@@ -5,6 +5,8 @@
  */
 package View;
 
+import Controller.Visual;
+
 /**
  *
  * @author paulo
@@ -15,7 +17,9 @@ public class Alerts extends javax.swing.JFrame {
      * Creates new form Alerts
      */
     public Alerts() {
+
         initComponents();
+        titleSubTitle.setText(Visual.getSubsidiary().getDisplayName());
     }
 
     /**

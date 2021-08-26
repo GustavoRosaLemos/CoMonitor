@@ -73,7 +73,13 @@ public class SelectSubsidiary extends javax.swing.JFrame {
         btnNextSelectSubsidiary.setText("Próximo");
         btnNextSelectSubsidiary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextSelectSubsidiaryActionPerformed(evt);
+               Subsidiary subsidiary = Visual.getSubisidiaryByDisplayName(listSubsidiary.getSelectedValue());
+               if(subsidiary != null) {
+                   Visual.setSubsidiary(subsidiary);
+                   setVisible(false);
+                   dispose();
+                   Home.execute();
+               }
             }
         });
 
