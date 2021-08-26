@@ -49,10 +49,12 @@ public class SelectSubsidiary extends javax.swing.JFrame {
         TitleSubisidiary.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         TitleSubisidiary.setText("Selecionar subisidaria");
 
-        BackSubsidiary.setText("Voltar");
+        BackSubsidiary.setText("Sair");
         BackSubsidiary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackSubsidiaryActionPerformed(evt);
+                setVisible(false);
+                dispose();
+                Login.execute();
             }
         });
 
