@@ -121,7 +121,7 @@ public abstract class Visual {
         employees.add(new Employee("Silvana Fabiana Bárbara Farias", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
         employees.add(new Employee("Alícia Caroline Santos", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
         employees.add(new Employee("Diogo Vicente Antonio Rocha", "Gerente", "5 Andar", false, true, "Presencial"));
-        return new Subsidiary("Serasa LTDA", "Serasa Consumidor", "21328349-34", "Serasa Blumenau", employees);
+        return new Subsidiary("Serasa LTDA", "Serasa Consumidor", "21328349-34", "BU Blumenau", employees);
     };
 
     public static boolean login(String username, String password) {

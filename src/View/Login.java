@@ -6,6 +6,9 @@
 package View;
 
 import Controller.Visual;
+import Model.Employee;
+import Model.Subsidiary;
+import Model.User;
 
 /**
  *
@@ -94,6 +97,7 @@ public class Login extends javax.swing.JFrame {
             setVisible(false);
             dispose();
             Home.execute();
+            Home.setup(Visual.getSubsidiary(), Visual.getUser(), Visual.getEmployee());
         }
         }
 
