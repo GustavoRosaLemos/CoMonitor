@@ -19,6 +19,7 @@ public class Home extends javax.swing.JFrame {
      * Creates new form Main
      */
     public Home() {
+
         initComponents();
         lblRiskLevel.setText(Visual.getRiskLevel(Visual.getSubsidiary()));
         lblInfectedAmount.setText(String.valueOf(Visual.getTotalInfecteds(Visual.getSubsidiary())));
