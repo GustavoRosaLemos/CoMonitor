@@ -131,8 +131,12 @@ public abstract class Visual {
 
         ArrayList<Employee> employees = new ArrayList<>();
         Employee e1 = new Employee("Gustavo Lemos", "Desenvolvedor", "5 Andar", true, false, "Presencial");
-        e1.addEmail(new Email("Pessoal", "dev.gustavolemos@outlook.com"));
+        e1.addEmail(new Email("Profissional", "dev.gustavolemos@outlook.com"));
+        ArrayList<Employee> employees2 = new ArrayList<>();
+        Employee e2 = new Employee("Paulo Dalescio", "Estagiário", "Sala do Zelador", false, true, "Presencial");
+        e2.addEmail(new Email("Pessoal", "paulodalescio@gmail.com"));
         employees.add(e1);
+        employees.add(e2);
         employees.add(new Employee("Yuri Renato Baptista", "Desenvolvedor", "5 Andar", true, false, "Presencial"));
         employees.add(new Employee("Caio Márcio Raimundo Melo", "PO", "5 Andar", true, false, "Presencial"));
         employees.add(new Employee("Malu Heloise Mariah da Mota", "QO", "5 Andar", false, false, "HomeOffice"));
@@ -140,7 +144,24 @@ public abstract class Visual {
         employees.add(new Employee("Silvana Fabiana Bárbara Farias", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
         employees.add(new Employee("Alícia Caroline Santos", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
         employees.add(new Employee("Diogo Vicente Antonio Rocha", "Gerente", "5 Andar", false, true, "Presencial"));
-        subsidiaryList.add(new Subsidiary("Serasa LTDA", "Serasa Consumidor", "21328349-34", "BU Blumenau", employees));
+        subsidiaryList.add(new Subsidiary("CPC LTD", "CPC", "21328349-34", "CPC Blumenau", employees));
+
+        ArrayList<Employee> employees3 = new ArrayList<>();
+        Employee e3 = new Employee("Gustavo Lemos", "Desenvolvedor", "5 Andar", true, false, "Presencial");
+        e3.addEmail(new Email("Profissional", "dev.gustavolemos@outlook.com"));
+        ArrayList<Employee> employees4 = new ArrayList<>();
+        Employee e4 = new Employee("Paulo Dalescio", "Estagiário", "Sala do Zelador", false, true, "Presencial");
+        e4.addEmail(new Email("Pessoal", "paulodalescio@gmail.com"));
+        employees2.add(e3);
+        employees2.add(e4);
+        employees2.add(new Employee("José Marcos da Luz", "Desenvolvedor", "5 Andar", false, false, "Presencial"));
+        employees2.add(new Employee("Yasmin Márcia Barbosa", "PO", "5 Andar", false, false, "Presencial"));
+        employees2.add(new Employee("Marcelo Pedro Mário Farias", "QO", "5 Andar", false, false, "HomeOffice"));
+        employees2.add(new Employee("Edson Leandro Pereira", "Desenvolvedor", "5 Andar", false, false, "Hibrido"));
+        employees2.add(new Employee("Sarah Sara Corte Real", "Desenvolvedor", "5 Andar", false, true, "Presencial"));
+        employees2.add(new Employee("Elaine Joana Helena Lima", "Desenvolvedor", "5 Andar", false, true, "HomeOffice"));
+        employees2.add(new Employee("Lucas Samuel Brito", "Gerente", "5 Andar", false, true, "HomeOffice"));
+        subsidiaryList.add(new Subsidiary("SPC LTDA", "SPC", "21328349-34", "SPC Itajai", employees2));
         return subsidiaryList;
     };
 
@@ -166,10 +187,8 @@ public abstract class Visual {
     }
 
     public static boolean sendMultipleMail(String title, String description, ArrayList<Employee> employees) {
-        System.out.println("Enviando emails!");
         try {
             for (Employee employee: employees) {
-                System.out.println("Verificando...");
                 if(employee.getEmails().size() > 0) {
                     System.out.println("Email enviado!");
                     Mail.Send(title, description, employee.getEmails().get(0).getValue());

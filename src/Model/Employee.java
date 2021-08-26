@@ -66,40 +66,65 @@ public class Employee {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public boolean setFullName(String fullName) {
+        if(fullName instanceof String) {
+            this.fullName = fullName;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String getRole() {
         return role;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public boolean setRole(String role) {
+        if(role instanceof String) {
+            this.role = role;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public boolean setLocation(String location) {
+        if(location instanceof String) {
+            this.location = location;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean isInfected() {
         return infected;
     }
 
-    public void setInfected(boolean infected) {
-        this.infected = infected;
+    public boolean setInfected(boolean infected) {
+        if(infected != this.infected) {
+            this.infected = infected;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean isImmunized() {
         return immunized;
     }
 
-    public void setImmunized(boolean immunized) {
-        this.immunized = immunized;
+    public boolean setImmunized(boolean immunized) {
+        if(immunized != this.immunized) {
+            this.immunized = immunized;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String getWorkMethod() {
@@ -124,9 +149,6 @@ public class Employee {
         return emails;
     }
 
-    public void setEmails(ArrayList<Email> emails) {
-        this.emails = emails;
-    }
 
     public void addEmail(Email email) {
         emails.add(email);
@@ -140,10 +162,6 @@ public class Employee {
         return phones;
     }
 
-    public void setPhones(ArrayList<Phone> phones) {
-        this.phones = phones;
-    }
-
     public void addPhone(Phone phone) {
         phones.add(phone);
     }
@@ -154,12 +172,13 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "EmployeeModel{" +
-                ", fullName='" + fullName + '\'' +
+        return "Employee{" +
+                "fullName='" + fullName + '\'' +
                 ", role='" + role + '\'' +
                 ", location='" + location + '\'' +
                 ", infected=" + infected +
                 ", immunized=" + immunized +
+                ", workMethod='" + workMethod + '\'' +
                 ", emails=" + emails +
                 ", phones=" + phones +
                 '}';

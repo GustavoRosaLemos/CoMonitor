@@ -1,9 +1,9 @@
 package Controller;
 
-import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 public abstract class Mail {
     public static boolean Send(String title, String description, String receiver) {

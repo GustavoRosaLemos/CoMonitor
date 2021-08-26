@@ -30,16 +30,17 @@ public class Subsidiary extends Company {
         return displayName;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    public boolean setDisplayName(String displayName) {
+        if(displayName instanceof  String) {
+            this.displayName = displayName;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public ArrayList<Employee> getEmployees() {
         return employees;
-    }
-
-    public void setEmployees(ArrayList<Employee> employees) {
-        this.employees = employees;
     }
 
     public void addEmployee(Employee employee) {
@@ -54,11 +55,16 @@ public class Subsidiary extends Company {
         return employeesList;
     }
 
+    public void setEmployees(ArrayList<Employee> employees) {
+        this.employees = employees;
+    }
+
     @Override
     public String toString() {
-        return "SubsidiaryModel{" +
-                ", displayName='" + displayName + '\'' +
+        return "Subsidiary{" +
+                "displayName='" + displayName + '\'' +
                 ", employees=" + employees +
+                ", employeesList='" + employeesList + '\'' +
                 '}';
     }
 }

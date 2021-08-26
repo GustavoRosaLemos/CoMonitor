@@ -122,7 +122,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Voltar");
+        jButton3.setText("< Voltar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setVisible(false);
@@ -248,7 +248,9 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void btnManagerEmployeeActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        setVisible(false);
+        dispose();
+        EmployeeManager.execute();
     }
 
     private void lblRiskLevelComponentAdded(java.awt.event.ContainerEvent evt) {
@@ -266,7 +268,9 @@ public class Home extends javax.swing.JFrame {
     }
 
     private void btnSetJobActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        setVisible(false);
+        dispose();
+        WorkMethod.execute();
     }
 
     /**
