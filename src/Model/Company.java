@@ -1,9 +1,9 @@
 package Model;
 
 public class Company {
-    private String companyName;
-    private String fantasyName;
-    private String cnpj;
+    protected String companyName;
+    protected String fantasyName;
+    protected String cnpj;
 
     public Company(String companyName, String fantasyName, String cnpj) {
         this.companyName = companyName;
