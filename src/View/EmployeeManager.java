@@ -12,7 +12,6 @@ import Model.Subsidiary;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
-import java.util.Vector;
 
 /**
  *
@@ -26,7 +25,7 @@ public class EmployeeManager extends javax.swing.JFrame {
     public EmployeeManager() {
 
         initComponents();
-
+        titleSubEmployeeManager.setText(Visual.getSubsidiary().getDisplayName());
     }
 
     /**
@@ -70,7 +69,7 @@ public class EmployeeManager extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         titleEmployeeManager.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        titleEmployeeManager.setText("Nome da Empresa");
+        titleEmployeeManager.setText("Gerenciar Funcionários");
 
         titleSubEmployeeManager.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         titleSubEmployeeManager.setText("Subsidiary");
@@ -179,6 +178,9 @@ public class EmployeeManager extends javax.swing.JFrame {
     }
 
     private void btnEditEmployeeActionPerformed(java.awt.event.ActionEvent evt) {
+        try {
+            tblEmployeeManager.getCellEditor().stopCellEditing();
+        } catch (Exception e) {}
         Subsidiary subsidiary = Visual.getSubsidiary();
         subsidiary.setEmployees(new ArrayList<>());
         for (int i = 0; i < tableModel.getRowCount(); i++) {
@@ -191,6 +193,7 @@ public class EmployeeManager extends javax.swing.JFrame {
                 isImmunized = true;
             }
             subsidiary.addEmployee(new Employee(tableModel.getDataVector().get(i).get(0).toString(), tableModel.getDataVector().get(i).get(1).toString(), tableModel.getDataVector().get(i).get(2).toString(), isInfected, isImmunized, tableModel.getDataVector().get(i).get(5).toString()));
+            System.out.println(tableModel.getDataVector().get(i).get(5).toString());
         }
         Visual.setSubsidiary(subsidiary);
         System.out.println("Funcionário adicionado com sucesso!");
