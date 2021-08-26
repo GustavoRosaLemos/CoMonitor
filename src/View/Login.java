@@ -93,11 +93,14 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        if(Visual.login(tfdUserLogin.getText(),tfdPasswordLogin.getText())){
-            setVisible(false);
-            dispose();
-            SelectSubsidiary.execute();
-        }
+            if(Visual.login(tfdUserLogin.getText(),tfdPasswordLogin.getText())){
+                setVisible(false);
+                dispose();
+                SelectSubsidiary.execute();
+                System.out.println("Login realizado com sucesso!");
+            } else {
+                System.out.println("Falha ao realizar login, usuário ou senha inválida!");
+            }
         }
 
     public static void execute() {
